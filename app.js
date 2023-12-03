@@ -1,7 +1,35 @@
 
-
-
 const gridImages = document.querySelectorAll('.grid-img-animate')
+
+
+const menuBtn = document.querySelector('.menu-btn');
+const cancelBtn = document.querySelector('.cancel-btn')
+
+const navTl = gsap.timeline()
+menuBtn.addEventListener('click', () => {
+    navTl.to('.menu', {
+        right: 0,
+        duration: 0.25
+    })
+
+        .to('.menu', {
+            height: '100vh'
+        })
+
+
+        .to('.menu li', {
+            opacity: 1,
+            stagger: 0.2,
+            duration: 0.25
+        })
+
+        .play()
+})
+
+
+cancelBtn.addEventListener('click', () => {
+    navTl.reverse()
+})
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,6 +97,8 @@ gridImages.forEach((gridImage) => {
         transformOrigin: 'center'
     })
 })
+
+
 
 
 
